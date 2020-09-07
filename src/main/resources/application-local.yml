@@ -1,0 +1,23 @@
+spring:
+  profiles: local
+  url:
+    base: http://localhost:8080
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+  h2:
+    console:
+      enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    properties.hibernate:
+      hbm2ddl.auto: update
+      format_sql: true
+    show-sql: true
+    generate-ddl: true
+
+logging:
+  level:
+    root: warn
+    com.demo.restapi: debug

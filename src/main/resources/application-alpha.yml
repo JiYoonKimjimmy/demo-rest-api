@@ -1,0 +1,24 @@
+spring:
+  profiles: alpha
+  url:
+    base: http://localhost:8080
+  datasource:
+    url: jdbc:mysql://127.0.0.1:33060/jimmyberg??useUnicode=true&autoReconnect=true&characterEncoding=utf8&allowMultiQueries=true&useSSL=false&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: jimmyberg
+    password: jimmyberg!@
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    properties.hibernate:
+      hbm2ddl.auto: none
+      format_sql: true
+    show-sql: true
+    generate-ddl: false
+
+logging:
+  level:
+    root: warn
+    com.demo.restapi: info
+    path: /home/ec2-user/demo/restapi/log
+  file:
+    max-history: 7

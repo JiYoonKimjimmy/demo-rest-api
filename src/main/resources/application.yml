@@ -1,0 +1,29 @@
+spring:
+  url:
+    base: http://localhost:8080
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+  h2:
+    console:
+      enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    properties.hibernate:
+      hbm2ddl.auto: update
+      format_sql: true
+    show-sql: true
+  messages:
+    basename: i18n/exception
+    encoding: UTF-8
+  social:
+    kakao:
+      client_id: 88b1334af4bd80a7112a81e94c774817
+      redirect: /social/login/kakao
+      url:
+        login: https://kauth.kakao.com/oauth/authorize
+        token: https://kauth.kakao.com/oauth/token
+        profile: https://kapi.kakao.com/v2/user/me
+  jwt:
+    secret: govlepel@$&

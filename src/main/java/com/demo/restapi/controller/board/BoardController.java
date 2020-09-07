@@ -1,5 +1,6 @@
 package com.demo.restapi.controller.board;
 
+import com.demo.restapi.common.aspect.LogExecutionTime;
 import com.demo.restapi.common.response.ListResult;
 import com.demo.restapi.common.response.SingleResult;
 import com.demo.restapi.common.service.ResponseService;
@@ -21,6 +22,7 @@ public class BoardController {
     private final ResponseService responseService;
     private final BoardService boardService;
 
+    @LogExecutionTime
     @ApiImplicitParams({
             @ApiImplicitParam(name = "X-AUTH-TOKEN", value = "인증 성공 후 access_token", required = true, dataType = "String", paramType = "header")
     })

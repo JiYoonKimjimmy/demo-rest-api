@@ -1,12 +1,12 @@
 spring:
   profiles: alpha
   url:
-    base: http://localhost:8080
+    base: http://13.209.75.145:8080
   datasource:
-    url: jdbc:mysql://127.0.0.1:33060/jimmyberg??useUnicode=true&autoReconnect=true&characterEncoding=utf8&allowMultiQueries=true&useSSL=false&serverTimezone=UTC
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: jimmyberg
-    password: jimmyberg!@
+    url: jdbc:mariadb://spring-rest-api.ct1sm8fccuaj.ap-northeast-2.rds.amazonaws.com/spring_rest_api
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: admin
+    password: dustp909$
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     properties.hibernate:

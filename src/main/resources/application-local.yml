@@ -7,14 +7,7 @@ spring:
     driver-class-name: org.mariadb.jdbc.Driver
     username: admin
     password: dustp909$
-  h2:
-    console:
-      enabled: true
   jpa:
-#    database-platform: org.hibernate.dialect.H2Dialect
-#    properties.hibernate:
-#      hbm2ddl.auto: update
-#      format_sql: true
     show-sql: true
     generate-ddl: true
     open-in-view: false

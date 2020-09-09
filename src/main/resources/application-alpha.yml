@@ -19,6 +19,6 @@ logging:
   level:
     root: warn
     com.demo.restapi: info
-    path: /home/ec2-user/logs
   file:
+    path: /home/ec2-user/logs
     max-history: 7

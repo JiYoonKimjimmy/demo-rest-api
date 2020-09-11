@@ -25,52 +25,58 @@ public class ExceptionAdvice {
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     protected CommonResult defaultException(HttpServletRequest request, Exception e) {
-        return responseService.getFailResult(Integer.valueOf(getMessage("unKnown.code")), getMessage("unKnown.message"));
+        return responseService.getFailResult(Integer.valueOf(getMessage("unKnown.code")), getMessage("unKnown.msg"));
     }
 
     // 사용자 조회 Exception
     @ExceptionHandler(CUserNotFoundException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     protected CommonResult userNotFound(HttpServletRequest request, CUserNotFoundException e) {
-        return responseService.getFailResult(Integer.valueOf(getMessage("userNotFound.code")), getMessage("userNotFound.message"));
+        return responseService.getFailResult(Integer.valueOf(getMessage("userNotFound.code")), getMessage("userNotFound.msg"));
     }
 
     // 사용자 인증 Exception
     @ExceptionHandler(CEmailSigninFailedException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     protected CommonResult emailSigninFailed(HttpServletRequest request, CEmailSigninFailedException e) {
-        return responseService.getFailResult(Integer.valueOf(getMessage("emailSigninFailed.code")), getMessage("emailSigninFailed.message"));
+        return responseService.getFailResult(Integer.valueOf(getMessage("emailSigninFailed.code")), getMessage("emailSigninFailed.msg"));
     }
 
     // 비밀번호 불일치 Exception
     @ExceptionHandler(PwdAuthFailException.class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     protected CommonResult pwdAuthFailException(HttpServletRequest request, PwdAuthFailException e) {
-        return responseService.getFailResult(Integer.valueOf(getMessage("pwdAuthFail.code")), getMessage("pwdAuthFail.message"));
+        return responseService.getFailResult(Integer.valueOf(getMessage("pwdAuthFail.code")), getMessage("pwdAuthFail.msg"));
     }
 
     // EntryPoint Exception
     @ExceptionHandler(CAuthenticationEntryPointException.class)
     public CommonResult authenticationEntryPointException(HttpServletRequest request, CAuthenticationEntryPointException e) {
-        return responseService.getFailResult(Integer.valueOf(getMessage("entryPointException.code")), getMessage("entryPointException.message"));
+        return responseService.getFailResult(Integer.valueOf(getMessage("entryPointException.code")), getMessage("entryPointException.msg"));
     }
 
     // access denied Exception
     @ExceptionHandler(AccessDeniedException.class)
     public CommonResult accessDeniedException(HttpServletRequest request, AccessDeniedException e) {
-        return responseService.getFailResult(Integer.valueOf(getMessage("accessDenied.code")), getMessage("accessDenied.message"));
+        return responseService.getFailResult(Integer.valueOf(getMessage("accessDenied.code")), getMessage("accessDenied.msg"));
     }
 
     // Communication Exception
     @ExceptionHandler(CCommunicationException.class)
     public CommonResult communicationException(HttpServletRequest request, CCommunicationException e) {
-        return responseService.getFailResult(Integer.valueOf(getMessage("communicationError.code")), getMessage("communicationError.message"));
+        return responseService.getFailResult(Integer.valueOf(getMessage("communicationError.code")), getMessage("communicationError.msg"));
     }
 
     // User Exist Exception
     @ExceptionHandler(CUserExistException.class)
     public CommonResult userExistException(HttpServletRequest request, CUserExistException e) {
-        return responseService.getFailResult(Integer.valueOf(getMessage("userExistError.code")), getMessage("userExistError.message"));
+        return responseService.getFailResult(Integer.valueOf(getMessage("userExistError.code")), getMessage("userExistError.msg"));
+    }
+
+    // Public Api Fail Exception
+    @ExceptionHandler(PublicApiFailException.class)
+    public CommonResult publicApiFailException(HttpServletRequest request, PublicApiFailException e) {
+        return responseService.getFailResult(Integer.valueOf(getMessage("publicApiFail.code")), getMessage("publicApiFail.msg"));
     }
 
 

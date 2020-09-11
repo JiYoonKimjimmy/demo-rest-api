@@ -14,11 +14,14 @@ spring:
         login: https://kauth.kakao.com/oauth/authorize
         token: https://kauth.kakao.com/oauth/token
         profile: https://kapi.kakao.com/v2/user/me
+
   public-api:
-    parkplace:
-      request-url: http://api.data.go.kr/openapi/tn_pubr_prkplce_info_api
+    park-place:
+      api-url: http://api.data.go.kr/openapi/tn_pubr_prkplce_info_api
       service-key: LGg12%2B%2BRNPBk4ZoSIVuownxLrJ74ELJDhzOnqYDNuBuxr1I4eQdRcAaAhOk8awaeveye8QG5TTVhIr19psJrQw%3D%3D
-      response-type: xml
+    car-wash:
+      api-url: http://api.data.go.kr/openapi/tn_pubr_public_carwsh_api
+      service-key: LGg12%2B%2BRNPBk4ZoSIVuownxLrJ74ELJDhzOnqYDNuBuxr1I4eQdRcAaAhOk8awaeveye8QG5TTVhIr19psJrQw%3D%3D
 
   jpa:
     hibernate:
@@ -27,7 +30,6 @@ spring:
     properties.hibernate:
       hbm2ddl.auto: none
       format_sql: true
-    show-sql: true
     generate-ddl: true
     open-in-view: false
 

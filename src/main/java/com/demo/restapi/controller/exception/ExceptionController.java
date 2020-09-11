@@ -22,4 +22,5 @@ public class ExceptionController {
     public CommonResult accessDeniedException() {
         throw new AccessDeniedException("");
     }
+
 }

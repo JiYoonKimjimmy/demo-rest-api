@@ -23,49 +23,35 @@ public class BoardController {
     private final BoardService boardService;
 
     @LogExecutionTime
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "X-AUTH-TOKEN", value = "인증 성공 후 access_token", required = true, dataType = "String", paramType = "header")
-    })
+    @ApiImplicitParams({@ApiImplicitParam(name = "X-AUTH-TOKEN", value = "인증 성공 후 access_token", required = true, dataType = "String", paramType = "header")})
     @ApiOperation(value = "게시글 등록")
     @PostMapping
-    @ResponseBody
     public SingleResult save(@RequestBody Board board) {
         return responseService.getSingleResult(boardService.save(board));
     }
 
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "X-AUTH-TOKEN", value = "인증 성공 후 access_token", required = true, dataType = "String", paramType = "header")
-    })
+    @ApiImplicitParams({@ApiImplicitParam(name = "X-AUTH-TOKEN", value = "인증 성공 후 access_token", required = true, dataType = "String", paramType = "header")})
     @ApiOperation(value = "게시글 목록 조회")
     @GetMapping
-    @ResponseBody
     public ListResult getAll() {
         return responseService.getListResult(boardService.getAll());
     }
 
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "X-AUTH-TOKEN", value = "인증 성공 후 access_token", required = true, dataType = "String", paramType = "header")
-    })
+    @ApiImplicitParams({@ApiImplicitParam(name = "X-AUTH-TOKEN", value = "인증 성공 후 access_token", required = true, dataType = "String", paramType = "header")})
     @ApiOperation(value = "게시글 상세 조회")
     @GetMapping(value = "/{id}")
-    @ResponseBody
     public SingleResult getOne(@PathVariable Long id) {
         return responseService.getSingleResult(boardService.getOne(id));
     }
 
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "X-AUTH-TOKEN", value = "인증 성공 후 access_token", required = true, dataType = "String", paramType = "header")
-    })
+    @ApiImplicitParams({@ApiImplicitParam(name = "X-AUTH-TOKEN", value = "인증 성공 후 access_token", required = true, dataType = "String", paramType = "header")})
     @ApiOperation(value = "게시글 수정")
     @PutMapping
-    @ResponseBody
     public SingleResult update(@RequestBody Board board) {
         return responseService.getSingleResult(boardService.update(board));
     }
 
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "X-AUTH-TOKEN", value = "인증 성공 후 access_token", required = true, dataType = "String", paramType = "header")
-    })
+    @ApiImplicitParams({@ApiImplicitParam(name = "X-AUTH-TOKEN", value = "인증 성공 후 access_token", required = true, dataType = "String", paramType = "header")})
     @ApiOperation(value = "게시글 삭제")
     @DeleteMapping
     public SingleResult delete(@RequestBody Board board) {

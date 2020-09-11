@@ -7,6 +7,7 @@
 * OAuth
 * JWT
 * Swagger
+* JAXB
 
 ---
 

@@ -55,4 +55,5 @@ public class ParkPlace {
     private String referenceDate;
     private String insttCode;
     private String insttNm;
+
 }

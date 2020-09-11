@@ -3,7 +3,7 @@
 * Spring Boot
 * Spring Security
 * JPA
-* H2
+* MariaDB
 * OAuth
 * JWT
 * Swagger
@@ -16,3 +16,7 @@
 * Spring Security 고도화
 * Spring REST Docs
 * PostgreSQL or MongoDB
+* Travis CI
+* Jenkins
+* Redis
+* Docker

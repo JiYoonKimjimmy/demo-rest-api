@@ -1,18 +1,16 @@
 package com.demo.restapi.common.aspect;
 
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StopWatch;
 
 @Component
 @Aspect
+@Slf4j
 public class LogAspect {
-
-    Logger logger = LoggerFactory.getLogger(LogAspect.class);
 
     @Around("@annotation(LogExecutionTime)")
     public Object LogExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
@@ -24,8 +22,9 @@ public class LogAspect {
 
         stopWatch.stop();
 
-        logger.info(stopWatch.prettyPrint());
+        log.info("running time = " + String.valueOf(stopWatch.getTotalTimeSeconds()) + " sec");
 
         return proceed;
     }
+
 }

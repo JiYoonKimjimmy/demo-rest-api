@@ -7,13 +7,6 @@ spring:
     driver-class-name: org.mariadb.jdbc.Driver
     username: admin
     password: dustp909$
-  jpa:
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-    properties.hibernate:
-      hbm2ddl.auto: none
-      format_sql: true
-    show-sql: true
-    generate-ddl: false
 
 logging:
   level:

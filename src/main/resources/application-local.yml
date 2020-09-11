@@ -7,12 +7,6 @@ spring:
     driver-class-name: org.mariadb.jdbc.Driver
     username: admin
     password: dustp909$
-  jpa:
-    show-sql: true
-    generate-ddl: true
-    open-in-view: false
-    hibernate:
-      ddl-auto: update
 
 logging:
   level:

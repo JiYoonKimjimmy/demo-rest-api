@@ -4,3 +4,15 @@ files :
   - source : /
     destination: /home/ec2-user/s3/zip/rest-api/
     overwrite : yes
+
+permissions:
+  - objcect: /
+    pattern: "**"
+    owner: ec2-user
+    group: ec2-user
+
+hooks:
+  ApplicationStart:
+    - location: deploy.sh
+      timeout: 60
+      runas: ec2-user

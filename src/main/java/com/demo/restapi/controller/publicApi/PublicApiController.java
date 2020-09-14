@@ -50,9 +50,9 @@ public class PublicApiController {
      * @return
      */
     public Object executeMethod(String apiType, String methodName) {
-        Object service = null;
-
         try {
+            Object service = null;
+
             if ("park-place".equals(apiType)) service = parkPlaceService;
             if ("car-wash".equals(apiType)) service = carWashService;
 

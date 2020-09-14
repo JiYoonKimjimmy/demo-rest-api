@@ -29,8 +29,8 @@ deploy:
       bucket: jimmyberg-rest-api
       key: rest-api.zip
       bundle_type: zip
-      application: spring-rest-api
-      deplyment_group: spring-rest-api-group
+      application: rest-api
+      deplyment_group: rest-api-group
       region: ap-northeast-2
       skip_cleanup: true
       acl: private

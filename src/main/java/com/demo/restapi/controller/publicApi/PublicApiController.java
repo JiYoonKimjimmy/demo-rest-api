@@ -1,5 +1,6 @@
 package com.demo.restapi.controller.publicApi;
 
+import com.demo.restapi.common.advice.exception.PublicApiFailException;
 import com.demo.restapi.common.aspect.LogExecutionTime;
 import com.demo.restapi.common.response.CommonResult;
 import com.demo.restapi.common.response.ListResult;
@@ -31,8 +32,11 @@ public class PublicApiController {
     @ApiOperation(value = "공공 API 데이터 가져오기")
     @GetMapping(value = "/pullData/{type}")
     public CommonResult pullData(@PathVariable String type) {
-        executeMethod(type, "pullData");
-        return responseService.getSuccessResult();
+        if (executeMethod(type, "pullData") != null) {
+            return responseService.getSuccessResult();
+        } else {
+            throw new PublicApiFailException();
+        }
     }
 
     @LogExecutionTime

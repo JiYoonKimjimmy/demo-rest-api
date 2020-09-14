@@ -30,25 +30,23 @@ deploy:
     - provider: s3
       access_key_id: $AWS_ACCESS_KEY
       secret_access_key: $AWS_SECRET_KEY
-
       bucket: jimmyberg-rest-api
       region: ap-northeast-2
       skip_cleanup: true
       acl: private
       local_dir: deploy
-      wait_until_deployed: true
+      wait-until-deployed: true
 
     - provider: codedeploy
       access_key_id: $AWS_ACCESS_KEY
       secret_access_key: $AWS_SECRET_KEY
-
       bucket: jimmyberg-rest-api
       key: rest-api.zip
       bundle_type: zip
       application: rest-api
       deployment_group: rest-api-group
       region: ap-northeast-2
-      wait_until_deployed: true
+      wait-until-deployed: true
 
 notifications:
   email:

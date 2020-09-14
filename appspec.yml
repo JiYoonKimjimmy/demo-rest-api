@@ -2,7 +2,7 @@ version: 0.0
 os : linux
 files :
   - source : /
-    destination: /home/ec2-user/s3/zip/rest-api/
+    destination: /home/ec2-user/apps/zip
     overwrite : yes
 
 permissions:

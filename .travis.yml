@@ -49,6 +49,4 @@ deploy:
       wait-until-deployed: true
 
 notifications:
-  email:
-    recipients:
-      - jimmyberg.kim@gmail.com
+  slack: jimmyberg:ixhUGjgmhEhqdG8Za7JLVm9E

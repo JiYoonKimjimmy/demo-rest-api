@@ -1,10 +1,21 @@
 spring:
   profiles:
     active: local
+    include: db
 
   messages:
     basename: i18n/exception
     encoding: UTF-8
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    properties.hibernate:
+      hbm2ddl.auto: none
+      format_sql: true
+    generate-ddl: true
+    open-in-view: false
 
   social:
     kakao:
@@ -22,16 +33,6 @@ spring:
     car-wash:
       api-url: http://api.data.go.kr/openapi/tn_pubr_public_carwsh_api
       service-key: LGg12%2B%2BRNPBk4ZoSIVuownxLrJ74ELJDhzOnqYDNuBuxr1I4eQdRcAaAhOk8awaeveye8QG5TTVhIr19psJrQw%3D%3D
-
-  jpa:
-    hibernate:
-      ddl-auto: update
-    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-    properties.hibernate:
-      hbm2ddl.auto: none
-      format_sql: true
-    generate-ddl: true
-    open-in-view: false
 
   jwt:
     secret: govlepel@$&

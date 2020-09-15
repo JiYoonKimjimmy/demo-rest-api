@@ -2,11 +2,6 @@ spring:
   profiles: local
   url:
     base: http://localhost:8080
-  datasource:
-    url: jdbc:mariadb://spring-rest-api.ct1sm8fccuaj.ap-northeast-2.rds.amazonaws.com/spring_rest_api
-    driver-class-name: org.mariadb.jdbc.Driver
-    username: admin
-    password: dustp909$
 
 logging:
   level:

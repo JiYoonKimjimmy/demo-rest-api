@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # 쉬고 있는 profile 찾기
-function find_idle_profile()
+function find_idle_profile() {
   # 현재 Nginx 와 연동된 프로젝트가 정상적인지 확인
   # RESPONSE_CODE 는 HTTP status code 로 반환
   RESPONSE_CODE=$(curl -s -o /dev/null -w "%{http_code}" http://localhost/profile)

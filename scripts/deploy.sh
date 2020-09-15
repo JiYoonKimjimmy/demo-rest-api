@@ -36,4 +36,4 @@ echo "> $JAR_NAME 실행"
 
 rm $REPOSITORY/$PROJECT_NAME/nohup.out
 
-nohup java -jar -Dspring.profiles.active=alpha -Dfile.encoding=UTF-8  $REPOSITORY/$PROJECT_NAME/$JAR_NAME > $REPOSITORY/$PROJECT_NAME/nohup.out 2>&1 &
+nohup java -jar -Dspring.profiles.active=alpha -Dfile.encoding=UTF-8  $JAR_NAME > $REPOSITORY/$PROJECT_NAME/nohup.out 2>&1 &

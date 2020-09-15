@@ -1,12 +1,12 @@
 #!/bin/bash
 
 REPOSITORY=/home/ec2-user/apps
-DEPLOY_ZIP_DIR=/home/ec2-user/s3/zip/rest-api
+DEPLOY_ZIP_DIR=/home/ec2-user/apps/zip
 PROJECT_NAME=rest-api
 
 echo "> Build 파일 복사"
 
-cp $DEPLOY_ZIP_DIR/*.jar $REPOSITORY
+cp $DEPLOY_ZIP_DIR/$PROJECT_NAME/*.jar $REPOSITORY/$PROJECT_NAME
 
 echo "> 현재 구동중인 애플리케이션 pid 확인"
 
@@ -24,7 +24,7 @@ fi
 
 echo "> 새 애플리케이션 배포"
 
-JAR_NAME=$(ls -tr $REPOSITORY/*.jar | tail -n 1)
+JAR_NAME=$(ls -tr $REPOSITORY/$PROJECT_NAME/*.jar | tail -n 1)
 
 echo "> JAR Name: $JAR_NAME"
 
@@ -34,6 +34,6 @@ chmod +x $JAR_NAME
 
 echo "> $JAR_NAME 실행"
 
-rm $REPOSITORY/"$PROJECT_NAME_"nohup.out
+rm $REPOSITORY/$PROJECT_NAME/nohup.out
 
-nohup java -jar -Dspring.profiles.active=alpha -Dfile.encoding=UTF-8  $REPOSITORY/$JAR_NAME > $REPOSITORY/"$PROJECT_NAME_"nohup.out 2>&1 &
+nohup java -jar -Dspring.profiles.active=alpha -Dfile.encoding=UTF-8  $REPOSITORY/$PROJECT_NAME/$JAR_NAME > $REPOSITORY/$PROJECT_NAME/nohup.out 2>&1 &

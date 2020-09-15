@@ -6,7 +6,7 @@ PROJECT_NAME=rest-api
 
 echo "> Build 파일 복사"
 
-cp $DEPLOY_DIRECTORY/$PROJECT_NAME/*.jar $REPOSITORY/$PROJECT_NAME
+cp $DEPLOY_DIRECTORY/$PROJECT_NAME/*.jar $REPOSITORY/$PROJECT_NAME/
 
 echo "> 현재 구동중인 애플리케이션 pid 확인"
 

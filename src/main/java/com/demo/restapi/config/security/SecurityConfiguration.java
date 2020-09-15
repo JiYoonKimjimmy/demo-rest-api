@@ -34,7 +34,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .and()
                 .authorizeRequests()
                     // 가입 및 인증 api 는 모든 접근 가능
-                    .antMatchers("/*/sign/signin", "/*/sign/signin/**", "/*/sign/signup", "/*/sign/signup/**", "/*/sign/social/**", "/social/**", "/profile").permitAll()
+                    .antMatchers("/*/sign/**", "/*/sign/*/**", "/social/**", "/profile").permitAll()
                     // 등록된 GET 요청 리소스는 모든 접근 가능
                     .antMatchers(HttpMethod.GET, "/exception/**", "/favicon.ico").permitAll()
                     // [TEST] user api 는 test 를 위해 admin 권한으로 설정

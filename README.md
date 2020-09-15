@@ -18,6 +18,5 @@
 * Spring Security 고도화
 * Spring REST Docs
 * PostgreSQL or MongoDB
-* Jenkins
 * Redis
 * Docker

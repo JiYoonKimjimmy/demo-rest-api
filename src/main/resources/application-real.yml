@@ -6,7 +6,7 @@ spring:
 logging:
   level:
     root: warn
-    com.demo.restapi: info
+    com.demo.restapi: debug
   file:
-    path: /home/ec2-user/logs
+    path: /home/ec2-user/logs/rest-api
     max-history: 7

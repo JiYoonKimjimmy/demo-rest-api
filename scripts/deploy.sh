@@ -36,4 +36,8 @@ echo "> $JAR_NAME 실행"
 
 rm $REPOSITORY/$PROJECT_NAME/nohup.out
 
-nohup java -jar -Dspring.profiles.active=real -Dfile.encoding=UTF-8  $JAR_NAME > $REPOSITORY/$PROJECT_NAME/nohup.out 2>&1 &
+nohup java -jar \
+    -Dspring.config.location=classpath:/application.yml,classpath:/application-real.yml,/home/ec2-user/app/application-db.properties \
+    -Dspring.profiles.active=real \
+    -Dfile.encoding=UTF-8 \
+    $JAR_NAME > $REPOSITORY/$PROJECT_NAME/nohup.out 2>&1 &

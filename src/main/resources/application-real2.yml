@@ -4,7 +4,7 @@ server:
 spring:
   profiles: real2
   url:
-    base: http://13.209.75.145:8080
+    base: http://13.209.75.145
 
 logging:
   level:

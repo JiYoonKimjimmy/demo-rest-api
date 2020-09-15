@@ -1,7 +1,16 @@
 server:
-  port: 8081
+  port: 8082
 
 spring:
-  profiles:
-    - real1
-    include: real
+  profiles: real2
+  url:
+    base: http://13.209.75.145:8080
+
+logging:
+  level:
+    root: warn
+    com.demo.restapi: info
+  file:
+    path: /home/ec2-user/logs/rest-api
+    max-history: 7
+

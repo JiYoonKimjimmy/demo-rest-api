@@ -1,12 +1,12 @@
 #!/bin/bash
 
 REPOSITORY=/home/ec2-user/apps
-DEPLOY_ZIP_DIR=/home/ec2-user/apps/zip
+DEPLOY_DIRECTORY=/home/ec2-user/deploy
 PROJECT_NAME=rest-api
 
 echo "> Build 파일 복사"
 
-cp $DEPLOY_ZIP_DIR/$PROJECT_NAME/*.jar $REPOSITORY/$PROJECT_NAME
+cp $DEPLOY_DIRECTORY/$PROJECT_NAME/*.jar $REPOSITORY/$PROJECT_NAME
 
 echo "> 현재 구동중인 애플리케이션 pid 확인"
 

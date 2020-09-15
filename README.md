@@ -9,6 +9,7 @@
 * JWT
 * Swagger
 * JAXB
+* Travis CI
 
 ---
 
@@ -17,7 +18,6 @@
 * Spring Security 고도화
 * Spring REST Docs
 * PostgreSQL or MongoDB
-* Travis CI
 * Jenkins
 * Redis
 * Docker

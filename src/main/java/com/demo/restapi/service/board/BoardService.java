@@ -1,9 +1,11 @@
 package com.demo.restapi.service.board;
 
 import com.demo.restapi.common.advice.exception.PwdAuthFailException;
+import com.demo.restapi.config.redis.CacheKey;
 import com.demo.restapi.entity.Board;
 import com.demo.restapi.repository.board.BoardJpaRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -38,6 +40,7 @@ public class BoardService {
      * @param id
      * @return
      */
+    @Cacheable(value = CacheKey.BOARD, key = "T(com.demo.restapi.config.redis.CustomKeyGenerator).create(#id)", unless = "#result == null")
     public Board getOne(Long id) {
         return boardJpaRepository.findById(id).get();
     }

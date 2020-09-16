@@ -10,6 +10,7 @@
 * Swagger
 * JAXB
 * Travis CI
+* Redis
 
 ---
 
@@ -18,5 +19,4 @@
 * Spring Security 고도화
 * Spring REST Docs
 * PostgreSQL or MongoDB
-* Redis
 * Docker

@@ -7,14 +7,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Data
 @Builder
 @Entity
-@NoArgsConstructor      // 인자 없는 생성자 자동 생성
-@AllArgsConstructor     // 인자를 모두 갖춪 생성자 자동 생성
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "board")
-public class Board {
+public class Board implements Serializable {
     @ApiModelProperty(hidden = true)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

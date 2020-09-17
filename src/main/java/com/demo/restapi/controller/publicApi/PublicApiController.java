@@ -5,6 +5,8 @@ import com.demo.restapi.common.aspect.LogExecutionTime;
 import com.demo.restapi.common.response.CommonResult;
 import com.demo.restapi.common.response.ListResult;
 import com.demo.restapi.common.service.ResponseService;
+import com.demo.restapi.entity.CarWash;
+import com.demo.restapi.model.paging.PageRequest;
 import com.demo.restapi.service.publicApi.CarWashService;
 import com.demo.restapi.service.publicApi.ParkPlaceService;
 import io.swagger.annotations.Api;
@@ -12,6 +14,7 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.lang.reflect.Method;
@@ -32,7 +35,7 @@ public class PublicApiController {
     @ApiOperation(value = "공공 API 데이터 가져오기")
     @GetMapping(value = "/pullData/{type}")
     public CommonResult pullData(@PathVariable String type) {
-        if (executeMethod(type, "pullData") != null) {
+        if (executeMethod(type, "pullData", null) != null) {
             return responseService.getSuccessResult();
         } else {
             throw new PublicApiFailException();
@@ -43,8 +46,8 @@ public class PublicApiController {
     @ApiImplicitParams({@ApiImplicitParam(name = "X-AUTH-TOKEN", value = "인증 성공 후 access_token", required = true, dataType = "String", paramType = "header")})
     @ApiOperation(value = "공공 API 전체 목록 조회")
     @GetMapping(value = "/{type}")
-    public ListResult getAll(@PathVariable String type) {
-        return responseService.getListResult((List) executeMethod(type, "getAll"));
+    public ListResult getAll(@PathVariable String type, final PageRequest pageRequest) {
+        return responseService.getListResult((Page<CarWash>) executeMethod(type, "getAll", pageRequest));
     }
 
     /**
@@ -53,7 +56,7 @@ public class PublicApiController {
      * @param methodName
      * @return
      */
-    public Object executeMethod(String apiType, String methodName) {
+    public Object executeMethod(String apiType, String methodName, Object params) {
         Object service = null;
 
         try {
@@ -61,9 +64,9 @@ public class PublicApiController {
             if ("car-wash".equals(apiType)) service = carWashService;
 
             Class<?> serviceClass = service.getClass();
-            Method method = serviceClass.getMethod(methodName);
+            Method method = serviceClass.getMethod(methodName, params.getClass());
 
-            return method.invoke(service);
+            return method.invoke(service, params);
 
         } catch (Exception e) {
             e.printStackTrace();

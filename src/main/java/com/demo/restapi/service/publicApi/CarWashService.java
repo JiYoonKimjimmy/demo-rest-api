@@ -1,20 +1,23 @@
 package com.demo.restapi.service.publicApi;
 
 import com.demo.restapi.entity.CarWash;
+import com.demo.restapi.model.paging.PageRequest;
 import com.demo.restapi.model.publicApi.CarWashResponse;
 import com.demo.restapi.model.publicApi.PublicApiParams;
 import com.demo.restapi.repository.publicApi.CarWashJpaRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
 @Slf4j
+@Service
 @Transactional
 @RequiredArgsConstructor
 public class CarWashService {
@@ -53,9 +56,12 @@ public class CarWashService {
 
     /**
      * 목록 조회
+     * @param pageRequest
      * @return
      */
-    public List<CarWash> getAll() { return carWashJpaRepository.findAll(); }
+    public Page<CarWash> getAll(PageRequest pageRequest) {
+        return carWashJpaRepository.findAll(pageRequest.of());
+    }
 
     /**
      * 전체 삭제
@@ -71,7 +77,6 @@ public class CarWashService {
 
         int pageNo = 0;
         int totalCount = 0;
-
 
         while (pageNo * NUM_OF_ROWS <= totalCount) {
             pageNo++;

@@ -3,6 +3,7 @@ package com.demo.restapi.common.service;
 import com.demo.restapi.common.response.CommonResult;
 import com.demo.restapi.common.response.ListResult;
 import com.demo.restapi.common.response.SingleResult;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -39,6 +40,17 @@ public class ResponseService {
     public <T> ListResult<T> getListResult(List<T> list) {
         ListResult<T> result = new ListResult<>();
         result.setList(list);
+        setSuccessResult(result);
+        return result;
+    }
+
+    // 다건 Paging 응답 결과 처리
+    public <T> ListResult<T> getListResult(Page<T> page) {
+        ListResult<T> result = new ListResult<>();
+        result.setList(page.getContent());
+        result.setPage(page.getNumber() + 1);
+        result.setSize(page.getSize());
+        result.setTotal(page.getTotalPages());
         setSuccessResult(result);
         return result;
     }

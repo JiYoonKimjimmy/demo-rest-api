@@ -9,4 +9,7 @@ import java.util.List;
 @Setter
 public class ListResult<T> extends CommonResult {
     private List<T> list;
+    private int page;
+    private int size;
+    private long total;
 }

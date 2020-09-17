@@ -50,7 +50,7 @@ public class ResponseService {
         result.setList(page.getContent());
         result.setPage(page.getNumber() + 1);
         result.setSize(page.getSize());
-        result.setTotal(page.getTotalPages());
+        result.setTotal(page.getTotalElements());
         setSuccessResult(result);
         return result;
     }

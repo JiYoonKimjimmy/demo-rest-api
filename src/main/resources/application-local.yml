@@ -5,8 +5,5 @@ spring:
   redis:
     host: localhost
     port: 6379
-
-logging:
-  level:
-    root: warn
-    com.demo.restapi: debug
+  jpa:
+    show-sql: true

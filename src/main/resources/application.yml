@@ -37,3 +37,7 @@ spring:
   jwt:
     secret: govlepel@$&
 
+  redis:
+    host: redis-cache-cluster.bklsy6.ng.0001.apn2.cache.amazonaws.com
+    port: 6379
+

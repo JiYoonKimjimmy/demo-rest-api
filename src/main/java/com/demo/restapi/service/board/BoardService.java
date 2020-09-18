@@ -40,7 +40,7 @@ public class BoardService {
      * @param id
      * @return
      */
-    @Cacheable(value = CacheKey.BOARD, key = "T(com.demo.restapi.config.redis.CustomKeyGenerator).create(#id)", unless = "#result == null")
+    @Cacheable(value = CacheKey.BOARD, key = "T(com.demo.restapi.config.redis.CustomKeyGenerator).create(#id)", unless = "#result == null", cacheManager = "cacheManager")
     public Board getOne(Long id) {
         return boardJpaRepository.findById(id).get();
     }

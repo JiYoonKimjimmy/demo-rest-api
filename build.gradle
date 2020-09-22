@@ -28,8 +28,7 @@ dependencies {
     implementation 'org.mariadb.jdbc:mariadb-java-client'
 
     implementation 'junit:junit:4.12'
-    implementation 'io.springfox:springfox-swagger2:2.6.1'
-    implementation 'io.springfox:springfox-swagger-ui:2.6.1'
+
     implementation 'net.rakugakibox.util:yaml-resource-bundle:1.1'
     implementation 'io.jsonwebtoken:jjwt:0.9.1'
     implementation 'com.google.code.gson:gson'
@@ -38,6 +37,9 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
 
+    compile group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.4.4'
+    compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+    compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
     compile group: 'redis.clients', name: 'jedis', version: '3.3.0'
 
     testCompile group: 'pl.pragmatists', name: 'JUnitParams', version: '0.3.6'

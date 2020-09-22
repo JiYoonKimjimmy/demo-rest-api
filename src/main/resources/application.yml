@@ -41,3 +41,20 @@ spring:
     host: redis-cache-cluster.bklsy6.ng.0001.apn2.cache.amazonaws.com
     port: 6379
 
+springdoc:
+  title: REST API demo
+  version: v0.0.1
+  # Application 의 API 를 OAS 3 이용하여 json 형식화
+  api-docs:
+    path: /v3/api-docs
+  default-consumes-media-type: application/json # request media type
+  default-produces-media-type: application/json # response media type
+  swagger-ui:
+    path: /swagger-ui.html                      # swagger HTML 문서 경로
+    operations-sorter: method                   # controller 내에서 정의한 API 정렬 순서 (alpha : 알파벳 오름차순)
+    tags-sorter: alpha                          # tag 정렬 순서
+    disable-swagger-default-url: true           # swagger default petstore HTML 문서 비활성화 여부
+    display-query-params-without-oauth2: true   # json config file 대신 parameter 를 이용한 swagger-ui 접근 (v1.4.1이상 지원)
+  # 문서화할 API path 목록
+  paths-to-match:
+    - /api/**
